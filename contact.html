@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ═══ SEO Primary ═══ -->
+  <title>צור קשר | הרב יוסף ברוך פרומר — חופות, בר/בת מצווה, הרצאות</title>
+  <meta name="description" content="צרו קשר עם הרב יוסף ברוך פרומר — לחופות מסורתיות, טקסי בר ובת מצווה, הרצאות וייעוץ רבני. וואטסאפ, מייל או תיאום שיחה." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="author" content="הרב יוסף ברוך פרומר" />
+  <link rel="canonical" href="https://rabbiyos.com/contact.html" />
+
+  <!-- ═══ Open Graph ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="הרב יוסף ברוך פרומר" />
+  <meta property="og:title" content="צור קשר | הרב יוסף ברוך פרומר" />
+  <meta property="og:description" content="צרו קשר לחופות מסורתיות, בר/בת מצווה, הרצאות וייעוץ רבני." />
+  <meta property="og:url" content="https://rabbiyos.com/contact.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 RTL -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero hero--sales" aria-label="כותרת ראשית" style="overflow:hidden;">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="hero-title mb-3">תפסו את הרב 📲</h1>
+      </div>
+    </div>
+
+    <div id="rabbi-runner" style="position:relative; height:120px; width:100%;" aria-hidden="true">
+      <span style="position:absolute; right:0; top:50%; transform:translateY(-50%); font-size:2.8rem; line-height:1;" aria-hidden="true">🕍</span>
+      <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); font-size:2.8rem; line-height:1;" aria-hidden="true">🏠</span>
+      <div id="rabbi" style="position:absolute; top:50%; transform:translateY(-50%); cursor:pointer; user-select:none; left:50%;"
+           role="button" aria-label="לחצו לתפוס את הרב" tabindex="0">
+        <img src="img/rabbi-run.png" alt="" id="rabbi-img" style="height:50px; display:block; transform:scaleX(-1);" aria-hidden="true" />
+      </div>
+    </div>
+
+    <div class="row justify-content-center text-center mt-2">
+      <div class="col-lg-8">
+        <p id="catch-msg" style="color:#ffffff; font-size:1.1rem; min-height:1.8rem; font-weight:600;" aria-live="polite"></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const rabbi = document.getElementById('rabbi');
+  const rabbiImg = document.getElementById('rabbi-img');
+  const track = document.getElementById('rabbi-runner');
+  const msg = document.getElementById('catch-msg');
+
+  let pos = 50;
+  let direction = 1;
+  let speed = 0.35;
+  let caught = false;
+  let animFrame;
+
+  function animate() {
+    if (caught) return;
+    pos += direction * speed;
+    const maxPos = 88;
+    const minPos = 8;
+    if (pos >= maxPos) {
+      pos = maxPos;
+      direction = -1;
+      rabbiImg.style.transform = 'scaleX(1)';
+    }
+    if (pos <= minPos) {
+      pos = minPos;
+      direction = 1;
+      rabbiImg.style.transform = 'scaleX(-1)';
+    }
+    rabbi.style.left = pos + '%';
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  function catchRabbi() {
+    if (caught) return;
+    caught = true;
+    cancelAnimationFrame(animFrame);
+    rabbiImg.style.transform = 'scaleX(1)';
+    msg.textContent = 'תפסתם אותי! עכשיו אני מקשיב';
+    setTimeout(() => {
+      document.querySelector('.contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 900);
+  }
+
+  rabbi.addEventListener('mouseenter', catchRabbi);
+  rabbi.addEventListener('touchstart', catchRabbi, { passive: true });
+  rabbi.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') catchRabbi(); });
+</script>
+
+
+<!-- ==================== CONTACT FORM ==================== -->
+<section class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+
+        <form class="contact-form" novalidate aria-label="טופס יצירת קשר">
+
+          <div class="mb-3">
+            <label for="cf-name" class="form-label">שם מלא</label>
+            <input type="text" class="form-control" id="cf-name"
+              placeholder="השם שלכם" required
+              autocomplete="name" />
+          </div>
+
+          <div class="mb-3">
+            <label for="cf-phone" class="form-label">טלפון</label>
+            <input type="tel" class="form-control" id="cf-phone"
+              placeholder="05x-xxxxxxx" required
+              autocomplete="tel" inputmode="tel" />
+          </div>
+
+          <div class="mb-4">
+            <label for="cf-msg" class="form-label">במה אפשר לעזור?</label>
+            <textarea class="form-control" id="cf-msg" rows="4" placeholder="ספרו לי קצת..."></textarea>
+          </div>
+
+          <div class="contact-actions d-flex flex-column flex-sm-row gap-3">
+            <button type="button" class="btn btn-success btn-lg flex-fill" id="sendWhatsappBtn">
+              💬 שלחו בווצאפ
+            </button>
+            <button type="button" class="btn btn-cta btn-lg flex-fill" id="sendEmailBtn">
+              ✉️ שלחו במייל
+            </button>
+            <a href="https://calendly.com/rabbiyos/talk1hr" target="_blank" rel="noopener noreferrer"
+               class="btn btn-cta btn-lg flex-fill">
+              📅 תיאום שיחה
+            </a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<div id="site-footer"></div>
+
+<!-- JS -->
+<script src="js/layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function getFormData() {
+    return {
+      name: document.getElementById('cf-name')?.value.trim() || '',
+      phone: document.getElementById('cf-phone')?.value.trim() || '',
+      message: document.getElementById('cf-msg')?.value.trim() || ''
+    };
+  }
+
+  function validateForm(data) {
+    if (!data.name) { alert('אנא מלאו שם.'); return false; }
+    if (!data.phone) { alert('אנא מלאו טלפון.'); return false; }
+    return true;
+  }
+
+  function buildMessage(data) {
+    return `שלום יוסף,\n\nשם: ${data.name}\nטלפון: ${data.phone}\nהודעה: ${data.message || '-'}`;
+  }
+
+  document.getElementById('sendWhatsappBtn').addEventListener('click', function () {
+    const data = getFormData();
+    if (!validateForm(data)) return;
+    const text = encodeURIComponent(buildMessage(data));
+    window.open(`https://wa.me/972544970054?text=${text}`, '_blank', 'noopener,noreferrer');
+  });
+
+  document.getElementById('sendEmailBtn').addEventListener('click', function () {
+    const data = getFormData();
+    if (!validateForm(data)) return;
+    const subject = encodeURIComponent(`פנייה מהאתר – ${data.name}`);
+    const body = encodeURIComponent(buildMessage(data));
+    window.location.href = `mailto:terzis@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>

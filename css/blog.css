@@ -1,0 +1,160 @@
+/* ============================================
+   blog.css — Post page styles
+   ============================================ */
+
+/* ── Post body ── */
+.post-body {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #2b2b2b;
+}
+.post-body h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-top: 2.4rem;
+  margin-bottom: .8rem;
+  color: #1a1a2e;
+}
+.post-h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-top: 1.8rem;
+  margin-bottom: .6rem;
+  color: #1a1a2e;
+}
+.post-body p { margin-bottom: 1.2rem; }
+.post-body ul,
+.post-body ol { padding-right: 1.4rem; margin-bottom: 1.2rem; }
+.post-body li { margin-bottom: .4rem; }
+.post-body blockquote {
+  border-right: 4px solid var(--bs-primary, #0d6efd);
+  padding: .6rem 1.2rem;
+  margin: 1.5rem 0;
+  background: #f8f9ff;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: #444;
+}
+.post-body a { color: var(--bs-primary, #0d6efd); }
+
+/* ── Hero overrides ── */
+.hero .hero-subtitle {
+  color: #fff !important;
+  opacity: .9;
+}
+.hero .post-meta {
+  color: #fff !important;
+  opacity: .85;
+}
+.hero .post-meta i {
+  color: #fff !important;
+}
+
+/* ── Post card wrapper ── */
+.post-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 24px rgba(0,0,0,.07);
+  padding: 2.5rem 3rem;
+}
+@media (max-width: 576px) {
+  .post-card { padding: 1.5rem 1.2rem; }
+}
+
+/* ── Share bar ── */
+.share-bar {
+  background: #f4f4f8;
+  border-radius: 12px;
+  padding: 1.2rem 1.6rem;
+}
+.share-bar .share-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* ── Share — btn-cta עם override לצבע ── */
+.btn-share-facebook { --cta-bg: #1877f2; }
+.btn-share-x        { --cta-bg: #111; }
+.btn-share-whatsapp { --cta-bg: #25d366; }
+.btn-share-link     { --cta-bg: #5c6bc0; }
+.btn-share-email    { --cta-bg: #ea4335; }
+.btn-share-print    { --cta-bg: #607d8b; }
+
+.btn-cta[class*="btn-share-"] {
+  background: var(--cta-bg) !important;
+  border-color: var(--cta-bg) !important;
+}
+
+/* ── Related cards ── */
+.related-section { background: #f9f9fb; }
+.related-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  transition: transform .2s, box-shadow .2s;
+  overflow: hidden;
+}
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+}
+.related-card .card-img-top { height: 180px; object-fit: cover; }
+.related-card .card-category {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--bs-primary, #0d6efd);
+}
+.related-card .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+.related-card .card-link {
+  color: var(--bs-primary, #0d6efd);
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+}
+.related-card .card-link:hover { text-decoration: underline; }
+
+/* ══════════════════════════════════════════
+   @media print — מדפיס רק את תוכן הפוסט
+   ══════════════════════════════════════════ */
+@media print {
+  #site-header,
+  #site-footer,
+  .hero,
+  .share-bar,
+  .related-section { display: none !important; }
+
+  .post-card {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  body { font-size: 12pt; color: #000; background: #fff; }
+  .post-body h2 { font-size: 14pt; }
+  .post-h3      { font-size: 12pt; }
+  .post-body a  { color: #000; text-decoration: underline; }
+  .post-body blockquote {
+    border-right: 3px solid #999;
+    background: none;
+    color: #333;
+  }
+
+  .print-title {
+    display: block !important;
+    font-size: 18pt;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+}
+
+/* בתצוגה רגילה — הסתר את כותרת ההדפסה */
+.print-title { display: none; }

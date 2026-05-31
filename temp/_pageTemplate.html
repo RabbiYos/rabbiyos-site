@@ -1,0 +1,95 @@
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║              pageTemplate — הוראות שימוש             ║
+  ╠══════════════════════════════════════════════════════╣
+  ║  placeholder          מה זה                          ║
+  ║  ─────────────────────────────────────────────────   ║
+  ║  <!-- TITLE -->       כותרת הדף (ב-4 מקומות)        ║
+  ║  <!-- DESCRIPTION --> תיאור קצר ל-SEO ו-OG           ║
+  ║  <!-- SLUG -->        שם הקובץ בלי .html             ║
+  ║                       למשל: weddings                 ║
+  ║  <!-- KICKER -->      שורת תיאור קצרה תחת הכותרת    ║
+  ║  <!-- SECTION-X -->   כותרת כל סקשן                  ║
+  ║  <!-- CONTENT-X -->   תוכן כל סקשן                   ║
+  ╚══════════════════════════════════════════════════════╝
+-->
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title><!-- TITLE --> | הרב יוסף ברוך פרומר</title>
+  <meta name="description" content="<!-- DESCRIPTION -->" />
+
+  <link rel="canonical" href="https://rabbiyos.com/<!-- SLUG -->.html" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="he_IL" />
+  <meta property="og:title"       content="<!-- TITLE --> | הרב יוסף ברוך פרומר" />
+  <meta property="og:description" content="<!-- DESCRIPTION -->" />
+  <meta property="og:url"         content="https://rabbiyos.com/<!-- SLUG -->.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero hero--sales hero--inner" aria-label="<!-- TITLE -->">
+  <div class="container">
+    <div class="hero-inner text-center px-2">
+      <h1 class="hero-title mb-4"><!-- TITLE --></h1>
+      <p class="hero-kicker mb-3"><!-- KICKER --></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 1 ══════════════════ -->
+<section class="section section-alt" aria-labelledby="section1-title">
+  <div class="container">
+    <div class="content-card about-card">
+      <div class="about-text">
+        <h2 id="section1-title" class="section-title mb-4"><!-- SECTION-1 --></h2>
+        <p><!-- CONTENT-1 --></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 2 ══════════════════ -->
+<section class="section" aria-labelledby="section2-title">
+  <div class="container">
+    <div class="content-card about-card">
+      <div class="about-text">
+        <h2 id="section2-title" class="section-title mb-4"><!-- SECTION-2 --></h2>
+        <p><!-- CONTENT-2 --></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 3 ══════════════════ -->
+<section class="section section-alt" aria-labelledby="section3-title">
+  <div class="container">
+    <div class="content-card about-card">
+      <div class="about-text">
+        <h2 id="section3-title" class="section-title mb-4"><!-- SECTION-3 --></h2>
+        <p><!-- CONTENT-3 --></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
